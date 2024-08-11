@@ -1,0 +1,32 @@
+services:
+  server:
+    image: itzg/minecraft-server:java17
+    tty: true
+    stdin_open: true
+    ports:
+      - 25565:25565/tcp
+      - 25565:25565/udp
+      - 25575:25575/tcp
+    env_file: .env
+    environment:
+      UID: 3000
+      GID: 3000
+      MEMORY: 12G
+      TZ: Asia/Bangkok
+      TYPE: AUTO_CURSEFORGE
+      EULA: true
+      USE_AIKAR_FLAGS: true
+      ALLOW_FLIGHT: true
+      RCON_PASSWORD: ${RCON_PASSWORD}
+      CF_API_KEY: ${CF_API_KEY}
+      CF_SLUG: all-the-mods-9-to-the-sky
+    volumes:
+      - ada-truenas:/data
+
+volumes:
+  ada-truenas:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: addr=ada-truenas # ,nfsvers=4
+      device: :/mnt/main/home/songpola/share/docker/mc-atm9sky
