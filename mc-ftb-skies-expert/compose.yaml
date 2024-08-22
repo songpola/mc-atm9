@@ -16,10 +16,9 @@ services:
       USE_AIKAR_FLAGS: true
       ALLOW_FLIGHT: true
       RCON_PASSWORD: ${RCON_PASSWORD}
-      MEMORY: 16G
-      TYPE: AUTO_CURSEFORGE
-      CF_API_KEY: ${CF_API_KEY}
-      CF_SLUG: all-the-mods-9
+      MEMORY: 8G
+      TYPE: FTBA
+      FTB_MODPACK_ID: 117
     volumes:
       - ada-truenas:/data
 
@@ -29,4 +28,4 @@ volumes:
     driver_opts:
       type: nfs
       o: addr=ada-truenas
-      device: :/mnt/main/home/songpola/share/docker/mc-atm9
+      device: :/mnt/main/home/songpola/share/docker/mc-ftb-skies-expert

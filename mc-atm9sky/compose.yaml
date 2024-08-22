@@ -11,13 +11,13 @@ services:
     environment:
       UID: 3000
       GID: 3000
-      MEMORY: 12G
       TZ: Asia/Bangkok
-      TYPE: AUTO_CURSEFORGE
       EULA: true
       USE_AIKAR_FLAGS: true
       ALLOW_FLIGHT: true
       RCON_PASSWORD: ${RCON_PASSWORD}
+      MEMORY: 12G
+      TYPE: AUTO_CURSEFORGE
       CF_API_KEY: ${CF_API_KEY}
       CF_SLUG: all-the-mods-9-to-the-sky
     volumes:
@@ -28,5 +28,5 @@ volumes:
     driver: local
     driver_opts:
       type: nfs
-      o: addr=ada-truenas # ,nfsvers=4
+      o: addr=ada-truenas
       device: :/mnt/main/home/songpola/share/docker/mc-atm9sky
